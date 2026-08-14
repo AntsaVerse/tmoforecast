@@ -527,12 +527,12 @@ forecast_series <- function(
   # Export historique + prévision
   #==============================================================
 
-  historical_dates <- time(y)
+  historical_dates <- zoo::as.yearmon(time(y))
 
   historical_data <- data.frame(
 
     Date = as.Date(
-      zoo::as.yearmon(historical_dates)
+      format(historical_dates, "%Y-%m-01")
     ),
 
     Type = "Historique",
@@ -540,14 +540,14 @@ forecast_series <- function(
     Valeur = as.numeric(y)
   )
 
-  forecast_dates <- time(
-    forecast12$mean
-  )
+  forecast_dates <- zoo::as.yearmon(
+  time(forecast12$mean)
+)
 
   forecast_data <- data.frame(
 
     Date = as.Date(
-      zoo::as.yearmon(forecast_dates)
+      format(forecast_dates, "%Y-%m-01")
     ),
 
     Type = "Prévision",
