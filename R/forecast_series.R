@@ -187,8 +187,7 @@ forecast_series <- function(
 
   pb <- cli::cli_progress_bar(
   cli::col_green("Fikajiana modely"),
-  total = total_steps,
-  format = "{pb} {percent} | {current}/{total} | {elapsed}"
+  total = total_steps
 )
 
   cat("\n")
