@@ -317,11 +317,11 @@ forecast_series <- function(
         as.numeric(test)
       )
 
-      if (!is.null(forecast::residuals(fc))) {
+      if (!is.null(stats::residuals(fc))) {
 
         residuals_models[[m]] <- c(
           residuals_models[[m]],
-          forecast::residuals(fc)
+          stats::residuals(fc)
         )
       }
     }
@@ -487,7 +487,7 @@ forecast_series <- function(
 
   } else {
 
-    res <- forecast::residuals(best_fit)
+    res <- stats::residuals(best_fit)
 
     res <- na.omit(res)
 
