@@ -189,8 +189,8 @@ forecast_series <- function(
   cat(
     "FIKAROHANA NY MODELY MAMARITRA NY FIVOARAHAN'ILAY ANTOTAN'ISA\n"
   )
-  cat("Isan'ny modely kajiana :", length(models), "\n")
-  cat("Isan'ny windows hanaovana test :", n_windows, "\n\n")
+  cat("Isan'ny modely kajiana :", cli::cli_alert_info(length(models)), "\n")
+  cat("Isan'ny windows hanaovana test :", cli::cli_alert_info(n_windows), "\n\n")
 
   #==============================================================
   # Fonction permettant d'estimer un modèle et produire
@@ -388,13 +388,13 @@ forecast_series <- function(
 
   cat(
     "Sempotra ihany fa ny modely tsara indrindra zany dia :",
-    best_model,
+    cli::cli_alert_info(best_model),
     "...\n"
   )
 
   cat(
     "Hamerina hikajy ny :",
-    best_model,
+    cli::cli_alert_info(best_model),
     " amin'ny antontan'isa manontolo...\n"
   )
 
@@ -573,7 +573,7 @@ forecast_series <- function(
   cat("\n")
   cat("=============================================\n")
   cat("Vita ara-dalana ny vinavina.\n")
-  cat("Ny modely voasivana dia :", best_model, "\n")
+  cat("Ny modely voasivana dia :", cli::cli_alert_info(best_model), "\n")
   cat("=============================================\n\n")
 
   print(forecast_plot)
