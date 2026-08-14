@@ -82,8 +82,11 @@ s_profil_stl <- function(y) {
 
   season_df <- data.frame(
     date = as.Date(
-      zoo::as.yearmon(stats::time(y))
-    ),
+    format(
+      zoo::as.yearmon(stats::time(y)),
+      "%Y-%m-01"
+    )
+  ),
     seasonal = as.numeric(seasonal)
   ) |>
     dplyr::mutate(
