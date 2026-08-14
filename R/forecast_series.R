@@ -177,13 +177,19 @@ forecast_series <- function(
   n_windows <- length(window_size:(length(y) - h))
   total_steps <- n_windows * length(models)
 
-  pb <- utils::txtProgressBar(
-    min = 0,
-    max = total_steps,
-    style = 3
-  )
+  # pb <- utils::txtProgressBar(
+  #   min = 0,
+  #   max = total_steps,
+  #   style = 3
+  # )
 
-  counter <- 0
+  # counter <- 0
+
+  pb <- cli::cli_progress_bar(
+  cli::col_green("Fikajiana modely"),
+  total = total_steps,
+  format = "{pb} {percent} | {current}/{total} | {elapsed}"
+)
 
   cat("\n")
   cat(
@@ -303,12 +309,14 @@ cat(
 
     for (m in models) {
 
-      counter <- counter + 1
+      # counter <- counter + 1
 
-      utils::setTxtProgressBar(
-        pb,
-        counter
-      )
+      # utils::setTxtProgressBar(
+      #   pb,
+      #   counter
+      # )
+
+      cli::cli_progress_update(id = pb)
 
       fc <- fit_forecast(
         train,
@@ -336,7 +344,7 @@ cat(
     }
   }
 
-  close(pb)
+  # close(pb)
 
   cat("\n")
   cat("\n")
@@ -595,11 +603,13 @@ cat(
 
   cat(
     "Fotoana lany :",
+    cli::col_red(
     round(
       as.numeric(elapsed, units = "mins"),
       1
     ),
     "minitra\n"
+  )
   )
 
   return(
