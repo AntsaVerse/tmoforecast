@@ -1,10 +1,21 @@
 Package: TMOforecast
-Title: What the Package Does (One Line, Title Case)
+Title: Toolkits to predict monetary series
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+    person("Antsa", "Rajaonah", , "rajaonah.rar@gmail.com", role = c("aut", "cre"))
+Description: This package selects the best fit models to predict monetary series.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
+Imports: 
+    dplyr,
+    forecast,
+    ggplot2,
+    Metrics,
+    progress,
+    tseries,
+    zoo
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
